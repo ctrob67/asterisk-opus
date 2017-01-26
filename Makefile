@@ -31,6 +31,8 @@ install: $(MODULES)
 uninstall:
 	cd $(ASTMODDIR) && rm $(addsuffix .so,$(MODULES))
 
+CPATH=-Iinclude
+
 codec_opus_open_source: LIBS+=-lopus
 codec_opus_open_source: DEFS+=-DAST_MODULE=\"codec_opus_open_source\"
 codec_opus_open_source: codecs/codec_opus_open_source.so
