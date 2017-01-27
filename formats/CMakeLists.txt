@@ -1,6 +1,6 @@
 
 add_library(format_ogg_opus_open_source SHARED format_ogg_opus_open_source.c)
-target_compile_options(-isystem =/usr/include/opus)
+target_compile_options(format_ogg_opus_open_source -isystem =/usr/include/opus)
 target_compile_definitions(format_ogg_opus_open_source PRIVATE AST_MODULE=\"format_ogg_opus_open_source\")
 target_link_libraries(format_ogg_opus_open_source opus opusfile)
 
