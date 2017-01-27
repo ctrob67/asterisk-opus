@@ -1,13 +1,13 @@
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 3.3)
 
 project (asterisk-opus)
 
-find_library(asterisk REQUIRED)
-find_library(OPUS opus REQUIRED)
-find_library(opusfile REQUIRED)
-
-
 add_compile_options(-pthread -g3 -O3 -D_FORTIFY_SOURCE=2 -fPIC)
+
+# Build supports setting of sysroot but breaks if it is not set, so default it to /
+if (NOT "--sysroot" IN_LIST COMPILEROPTIONS)
+add_compile_options(--sysroot /)
+endif ()
 
 include_directories (${PROJECT_SOURCE_DIR}/include)
 
