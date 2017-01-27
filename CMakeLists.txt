@@ -5,7 +5,8 @@ project (asterisk-opus)
 add_compile_options(-pthread -g3 -O3 -D_FORTIFY_SOURCE=2 -fPIC)
 
 # Build supports setting of sysroot but breaks if it is not set, so default it to /
-if (NOT "--sysroot" IN_LIST COMPILEROPTIONS)
+string(FIND ${CMAKE_C_FLAGS} "--sysroot" index) 
+if (NOT index)
 add_compile_options(--sysroot /)
 endif ()
 
